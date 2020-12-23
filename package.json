@@ -1,0 +1,26 @@
+{
+  "name": "wheels",
+  "version": "0.0.1",
+  "description": "这是一个VueUI组件库",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/623446617/wheels.git"
+  },
+  "keywords": [
+    "vue",
+    "ui"
+  ],
+  "author": "mxw",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/623446617/wheels/issues"
+  },
+  "homepage": "https://github.com/623446617/wheels#readme",
+  "dependencies": {
+    "vue": "^2.6.12"
+  }
+}
