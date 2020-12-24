@@ -35,14 +35,22 @@
         }
     </style>
     <style>
-
+        .x-icon {
+            width: 1em;
+            height: 1em;
+        }
     </style>
 </head>
 <body>
 <div id="app">
-    <x-button></x-button>
+    <x-button>你好</x-button>
 </div>
 
+<svg class="x-icon">
+    <use xlink:href="#x-setting"></use>
+</svg>
+
 <script src="./src/app.js"></script>
+<script src="./src/icon.js"></script>
 </body>
 </html>

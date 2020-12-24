@@ -1,5 +1,7 @@
 <template>
-    <button class="x-button">按钮</button>
+    <button class="x-button">
+        <slot></slot>
+    </button>
 </template>
 
 <script>
