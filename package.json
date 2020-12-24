@@ -4,7 +4,7 @@
   "description": "这是一个VueUI组件库",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "parcel --no-cache index.html"
   },
   "repository": {
     "type": "git",
@@ -21,6 +21,16 @@
   },
   "homepage": "https://github.com/623446617/wheels#readme",
   "dependencies": {
-    "vue": "^2.6.12"
+    "vue": "^2.6.12",
+    "vue-hot-reload-api": "^2.3.4"
+  },
+  "devDependencies": {
+    "@vue/component-compiler-utils": "^3.2.0",
+    "parcel-bundler": "^1.12.4",
+    "sass": "^1.30.0",
+    "vue-template-compiler": "^2.6.12"
+  },
+  "alias": {
+    "vue": "./node_modules/vue/dist/vue.common.js"
   }
 }
