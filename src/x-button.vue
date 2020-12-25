@@ -1,9 +1,12 @@
 <template>
     <button class="x-button" :class="{[`icon-${iconAlign}`]: true}">
-        <x-icon class="icon" v-if="icon" :name="icon"></x-icon>
+        <x-icon class="icon"
+                v-if="icon"
+                :name="icon"></x-icon>
         <div class="content">
-            <slot></slot>
+            <slot/>
         </div>
+
     </button>
 </template>
 
@@ -29,6 +32,8 @@
 </script>
 
 <style scoped lang="scss">
+
+
     .x-button {
         font-size: var(--font-size);
         height: var(--button-height);
