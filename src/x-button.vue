@@ -1,6 +1,6 @@
 <template>
     <button class="x-button" :class="{[`icon-${iconAlign}`]: true}">
-        <x-icon v-if="icon" :name="icon"></x-icon>
+        <x-icon class="icon" v-if="icon" :name="icon"></x-icon>
         <div class="content">
             <slot></slot>
         </div>
@@ -57,7 +57,7 @@
             order: 2;
         }
 
-        > .x-icon {
+        > .icon {
             order: 1;
             margin-right: 0.3em;
             margin-left: unset;
@@ -68,7 +68,7 @@
                 order: 1;
             }
 
-            > .x-icon {
+            > .icon {
                 order: 2;
                 margin-left: 0.3em;
                 margin-right: unset;
