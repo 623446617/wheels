@@ -36,5 +36,6 @@
     .x-icon {
         width: 1em;
         height: 1em;
+        fill: currentColor; /*svg 颜色继承*/
     }
 </style>

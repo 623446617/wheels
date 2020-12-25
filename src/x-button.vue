@@ -35,6 +35,7 @@
 
 
     .x-button {
+        color: var(--color);
         font-size: var(--font-size);
         height: var(--button-height);
         padding: 0 1em;
