@@ -1,12 +1,27 @@
 <template>
-    <button class="x-button">
-        <slot></slot>
+    <button class="x-button" :class="{[`icon-${iconAlign}`]: true}">
+        <svg class="x-icon" v-if="icon">
+            <use :xlink:href="`#x-${icon}`"></use>
+        </svg>
+        <div class="content">
+            <slot></slot>
+        </div>
     </button>
 </template>
 
 <script>
     export default {
-        name: "x-button"
+        name: "x-button",
+        props: {
+            icon: {
+                type: String,
+                default: ''
+            },
+            iconAlign: {
+                type: String,
+                default: 'left'
+            }
+        }
     };
 </script>
 
@@ -18,6 +33,10 @@
         border-radius: var(--border-radius);
         border: 1px solid var(--border-color);
         background-color: var(--button-bg);
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        vertical-align: middle;
 
         &:hover {
             border-color: var(--border-color-hover);
@@ -29,6 +48,28 @@
 
         &:focus {
             outline: none;
+        }
+
+        > .content {
+            order: 2;
+        }
+
+        > .x-icon {
+            order: 1;
+            margin-right: 0.3em;
+            margin-left: unset;
+        }
+
+        &.icon-right {
+            > .content {
+                order: 1;
+            }
+
+            > .x-icon {
+                order: 2;
+                margin-left: 0.3em;
+                margin-right: unset;
+            }
         }
     }
 </style>
