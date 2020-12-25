@@ -19,7 +19,12 @@
             },
             iconAlign: {
                 type: String,
-                default: 'left'
+                default: 'left',
+                // 属性检查器
+                validator(val) {
+                    // 规定只允许传left或right，默认return false; 报错
+                    return val === 'left' || val === 'right';
+                }
             }
         }
     };
