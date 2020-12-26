@@ -22,8 +22,8 @@
             --button-active-bg: #eee;
             --border-radius: 4px;
             --border-color: #999;
-            --border-color-hover: #666;
-            --color: #f00;
+            --border-color-hover: #f00;
+            --color: #999;
         }
 
         body {
@@ -37,11 +37,17 @@
 </head>
 <body>
 <div id="app">
+
     <x-button icon="setting" icon-align="right" :loading="loading1" @click="loading1 = !loading1">按钮</x-button>
     <x-button icon="good" :loading="loading2" @click="loading2 = !loading2">按钮</x-button>
     <x-button icon="left" :loading="loading3" @click="loading3 = !loading3">按钮</x-button>
-
     <x-icon name="loading"></x-icon>
+
+    <x-button-group>
+        <x-button icon="left">上一页</x-button>
+        <x-button>更多</x-button>
+        <x-button icon="right" icon-align="right">上一页</x-button>
+    </x-button-group>
 </div>
 
 
