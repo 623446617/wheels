@@ -1,8 +1,11 @@
 <template>
-    <button class="x-button" :class="{[`icon-${iconAlign}`]: true}">
+    <button class="x-button" :class="{[`icon-${iconAlign}`]: true}" @click="$emit('click')">
         <x-icon class="icon"
-                v-if="icon"
+                v-if="icon && !loading"
                 :name="icon"></x-icon>
+        <x-icon class="icon"
+                v-if="loading"
+                name="loading"></x-icon>
         <div class="content">
             <slot/>
         </div>
@@ -15,10 +18,17 @@
         name: "x-button",
         props: {
             icon: {
+                // 图标名称
                 type: String,
                 default: ''
             },
+            loading: {
+                // 是否显示loading
+                type: Boolean,
+                default: false
+            },
             iconAlign: {
+                // 图标位置
                 type: String,
                 default: 'left',
                 // 属性检查器

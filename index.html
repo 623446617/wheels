@@ -37,9 +37,9 @@
 </head>
 <body>
 <div id="app">
-    <x-button icon="setting" icon-align="right">按钮</x-button>
-    <x-button icon="good">按钮</x-button>
-    <x-button icon="loading">按钮</x-button>
+    <x-button icon="setting" icon-align="right" :loading="loading1" @click="loading1 = !loading1">按钮</x-button>
+    <x-button icon="good" :loading="loading2" @click="loading2 = !loading2">按钮</x-button>
+    <x-button icon="left" :loading="loading3" @click="loading3 = !loading3">按钮</x-button>
 
     <x-icon name="loading"></x-icon>
 </div>
