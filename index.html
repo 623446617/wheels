@@ -14,18 +14,6 @@
             box-sizing: border-box;
         }
 
-        /* css中声明变量 */
-        :root {
-            --font-size: 14px;
-            --button-height: 32px;
-            --button-bg: white;
-            --button-active-bg: #eee;
-            --border-radius: 4px;
-            --border-color: #999;
-            --border-color-hover: #f00;
-            --color: #333;
-        }
-
         body {
             font-size: var(--font-size);
         }
@@ -34,15 +22,14 @@
             margin: 20px;
         }
     </style>
+    <link rel="stylesheet" href="./src/base.css" />
 </head>
 <body>
 <div id="app">
-
     <x-button icon="setting" icon-align="right" :loading="loading1" @click="loading1 = !loading1">按钮</x-button>
     <x-button icon="good" :loading="loading2" @click="loading2 = !loading2">按钮</x-button>
     <x-button icon="left" :loading="loading3" @click="loading3 = !loading3">按钮</x-button>
     <x-icon name="loading"></x-icon>
-
     <x-button-group>
         <x-button icon="left">上一页</x-button>
         <x-button>更多</x-button>
@@ -50,6 +37,7 @@
     </x-button-group>
 </div>
 
+<div id="test"></div>
 
 
 <script src="./src/app.js"></script>
