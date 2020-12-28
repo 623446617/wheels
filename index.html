@@ -26,6 +26,13 @@
 </head>
 <body>
 <div id="app">
+    <x-input value="normal"></x-input>
+    <x-input value="disabled" disabled></x-input>
+    <x-input value="readonly" readonly></x-input>
+    <x-input value="error" :error="true" message="错误信息"></x-input>
+
+    <div style="margin-top: 20px;"></div>
+
     <x-button icon="setting" icon-align="right" :loading="loading1" @click="loading1 = !loading1">按钮</x-button>
     <x-button icon="good" :loading="loading2" @click="loading2 = !loading2">按钮</x-button>
     <x-button icon="left" :loading="loading3" @click="loading3 = !loading3">按钮</x-button>

@@ -1,11 +1,13 @@
 import Vue from 'vue';
-import xbutton from "./x-button";
-import xicon from "./x-icon";
-import xbuttongroup from './x-button-group';
+import XButton from "./x-button";
+import XIcon from "./x-icon";
+import XButtonGroup from './x-button-group';
+import XInput from './x-input';
 // 注册全局组件
-Vue.component('x-button', xbutton);
-Vue.component('x-icon', xicon);
-Vue.component('x-button-group', xbuttongroup)
+Vue.component('x-button', XButton);
+Vue.component('x-icon', XIcon);
+Vue.component('x-button-group', XButtonGroup);
+Vue.component('x-input', XInput);
 
 let app = new Vue({
     el: '#app',
