@@ -3,7 +3,11 @@
         <input type="text"
                :value="value"
                :disabled="disabled"
-               :readonly="readonly"/>
+               :readonly="readonly"
+               @focus="$emit('xfocus', $event)"
+               @blur="$emit('xblur', $event)"
+               @input="$emit('xinput', $event)"
+               @change="$emit('xchange', $event)"/>
 
         <template v-if="error">
             <XIcon name="error" class="error-icon"></XIcon>

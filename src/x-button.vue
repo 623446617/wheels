@@ -1,5 +1,5 @@
 <template>
-    <button class="x-button" :class="{[`icon-${iconAlign}`]: true}" @click="$emit('click')">
+    <button class="x-button" :class="{[`icon-${iconAlign}`]: true}" @click="$emit('xclick')">
         <x-icon class="icon"
                 v-if="icon && !loading"
                 :name="icon"></x-icon>

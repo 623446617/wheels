@@ -15,6 +15,20 @@ let app = new Vue({
         loading1: false,
         loading2: false,
         loading3: false
+    },
+    methods: {
+        xfocus(param) {
+            console.log(param);
+        },
+        xblur(param) {
+            console.log(param);
+        },
+        xinput(param) {
+            console.log(param);
+        },
+        xchange(param) {
+            console.log(param);
+        }
     }
 });
 
