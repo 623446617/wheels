@@ -5,9 +5,9 @@
                :disabled="disabled"
                :readonly="readonly"/>
 
-        <template v-if="error" style="display: flex; justify-content: center; align-items: center;">
-            <XIcon name="setting"></XIcon>
-            <span>{{message}}</span>
+        <template v-if="error">
+            <XIcon name="error" class="error-icon"></XIcon>
+            <span class="error-mesg">{{message}}</span>
         </template>
     </div>
 </template>
@@ -48,19 +48,30 @@
     $border-radius: 4px;
     $font-size: 14px;
 
+    /*hover状态*/
     $border-color-hover: #666;
 
+    /*focus状态*/
     $box-shadow-color-focus: rgba(0,0,0,0.5);
 
+    /*disable状态*/
     $border-color-disabled: #bbb;
     $color-disabled: $border-color-disabled;
 
-    $border-color-error:  #f1453d;
+    /*error状态*/
+    $error-color: #f1453d;
+    $border-color-error:  $error-color;
 
     .x-input-wrapper {
         font-size: $font-size;
-        display: inline-block;
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
         vertical-align: middle;
+
+        > *:not(:last-child) {
+            margin-right: .3em;
+        }
 
         > input {
             height: $height;
@@ -89,6 +100,10 @@
             > input {
                 border-color: $border-color-error;
             }
+        }
+
+        .error-icon, .error-mesg {
+            color: $error-color;
         }
     }
 </style>
