@@ -4,10 +4,10 @@
                :value="value"
                :disabled="disabled"
                :readonly="readonly"
-               @focus="$emit('xfocus', $event)"
-               @blur="$emit('xblur', $event)"
-               @input="$emit('xinput', $event)"
-               @change="$emit('xchange', $event)"/>
+               @focus="$emit('focus', $event.target.value)"
+               @blur="$emit('blur', $event.target.value)"
+               @input="$emit('input', $event.target.value)"
+               @change="$emit('change', $event.target.value)"/>
 
         <template v-if="error">
             <XIcon name="error" class="error-icon"></XIcon>

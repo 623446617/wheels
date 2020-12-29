@@ -26,10 +26,12 @@
 </head>
 <body>
 <div id="app">
-    <x-input value="normal" @xchange="xchange" @xinput="xinput" @xfocus="xfocus" @xblur="xblur"></x-input>
+    <x-input value="normal" @change="xchange" @input="xinput" @focus="xfocus" @blur="xblur"></x-input>
     <x-input value="disabled" disabled></x-input>
     <x-input value="readonly" readonly></x-input>
     <x-input value="error" :error="true" message="错误信息"></x-input>
+    <x-input v-model="message"></x-input>
+    {{message}}
 
     <div style="margin-top: 20px;"></div>
 
