@@ -3,11 +3,15 @@ import XButton from "./x-button";
 import XIcon from "./x-icon";
 import XButtonGroup from './x-button-group';
 import XInput from './x-input';
+import XRow from './x-row';
+import XCol from './x-col';
 // 注册全局组件
 Vue.component('x-button', XButton);
 Vue.component('x-icon', XIcon);
 Vue.component('x-button-group', XButtonGroup);
 Vue.component('x-input', XInput);
+Vue.component('x-row', XRow);
+Vue.component('x-col', XCol);
 
 let app = new Vue({
     el: '#app',
