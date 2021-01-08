@@ -1,5 +1,5 @@
 <template>
-    <div class="x-row" :style="gutter && `margin-right: -${gutter / 2}px; margin-left: -${gutter / 2}px;`">
+    <div class="x-row" :style="rowStyle">
         <slot></slot>
     </div>
 </template>
@@ -9,12 +9,18 @@
 
     export default {
         name: "x-row",
+        mixins: [childValidatorMixin],
         props: {
             gutter: {
                 type: [Number, String]
             }
         },
-        mixins: [childValidatorMixin],
+        computed: {
+          rowStyle() {
+              let {gutter} = this;
+              return gutter && `margin-right: -${gutter / 2}px; margin-left: -${gutter / 2}px;`;
+          }
+        },
         mounted() {
             this.validator('x-col');
             this.setChildGutter();

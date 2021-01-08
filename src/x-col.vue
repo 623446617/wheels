@@ -1,22 +1,12 @@
 <template>
-    <div class="x-col"
-         :class="[span && `x-col-${span}`, offset && `x-offset-${offset}`]"
-         :style="gutter && `padding-right: ${gutter / 2}px; padding-left: ${gutter / 2}px;`">
-        <div style="border: 1px solid;">
-            <slot></slot>
-        </div>
+    <div class="x-col" :class="colClass" :style="colStyle">
+        <slot></slot>
     </div>
 </template>
 
 <script>
     export default {
         name: "x-col",
-        data() {
-            return {
-                // 偏移
-                gutter: 0
-            }
-        },
         props: {
             // 份数
             span: {
@@ -26,6 +16,24 @@
             offset: {
                 type: [Number, String]
             },
+        },
+        data() {
+            return {
+                // 偏移
+                gutter: 0
+            }
+        },
+        computed: {
+            colClass() {
+                const {span, offset} = this;
+                return [
+                    span && `x-col-${span}`,
+                    offset && `x-offset-${offset}`
+                ];
+            },
+            colStyle() {
+                return this.gutter ? `padding-right: ${this.gutter / 2}px; padding-left: ${this.gutter / 2}px;` : '';
+            }
         }
     };
 </script>
