@@ -27,28 +27,23 @@
             offset: {
                 type: [Number, String]
             },
-            // 手机屏幕
-            phone: {
-                type: Object,
-                validator
-            },
             // ipad屏幕
             ipad: {
                 type: Object,
                 validator
             },
             // 窄电脑屏幕
-            narrowPc: {
+            smallPc: {
                 type: Object,
                 validator
             },
             // 正常电脑屏幕
-            pc: {
+            normalPc: {
                 type: Object,
                 validator
             },
             // 宽电脑屏幕
-            widePc: {
+            largePc: {
                 type: Object,
                 validator
             },
@@ -61,16 +56,15 @@
         },
         computed: {
             colClass() {
-                const {span, offset, phone, ipad, narrowPc, pc, widePc} = this;
+                const {span, offset, ipad, smallPc, normalPc, largePc} = this;
 
                 return [
                     getColSpan(span),
                     getColOffset(offset),
-                    ...phone ? [getColSpan(phone.span, 'phone-'), getColOffset(phone.offset, 'phone-')] : [],
                     ...ipad ? [getColSpan(ipad.span, 'ipad-'), getColOffset(ipad.offset, 'ipad-')] : [],
-                    ...narrowPc ? [getColSpan(narrowPc.span, 'narrowPC-'), getColOffset(narrowPc.offset, 'narrowPC-')] : [],
-                    ...pc ? [getColSpan(pc.span, 'pc-'), getColOffset(pc.offset, 'pc-')] : [],
-                    ...widePc ? [getColSpan(widePc.span, 'widePC-'), getColOffset(widePc.offset, 'widePC-')] : []
+                    ...smallPc ? [getColSpan(smallPc.span, 'smallPC-'), getColOffset(smallPc.offset, 'smallPC-')] : [],
+                    ...normalPc ? [getColSpan(normalPc.span, 'normalPC-'), getColOffset(normalPc.offset, 'normalPC-')] : [],
+                    ...largePc ? [getColSpan(largePc.span, 'largePC-'), getColOffset(largePc.offset, 'largePC-')] : []
                 ];
             },
             colStyle() {
@@ -85,18 +79,19 @@
         transition: all 0.5s;
         min-height: 5px;
         /*宽度为 100%，d:f 默认不换行，则默认均等分x-row*/
-        width: 50%;
+        width: 100%;
 
         $start: 1;
         $end: 24;
 
+        /*phone(默认)*/
         $span: x-col-;
         @for $n from $start through $end {
             &.#{$span}#{$n} {
                 width: ($n / 24) * 100%;
             }
         }
-
+        /*phone(默认)*/
         $offset: x-offset-;
         @for $n from $start through $end {
             &.#{$offset}#{$n} {
@@ -104,25 +99,8 @@
             }
         }
 
-        /*phone*/
-        @media (max-width: 576px) {
-            $span: x-col-phone-;
-            @for $n from $start through $end {
-                &.#{$span}#{$n} {
-                    width: ($n / 24) * 100%;
-                }
-            }
-
-            $offset: x-offset-phone-;
-            @for $n from $start through $end {
-                &.#{$offset}#{$n} {
-                    margin-left: ($n / 24) * 100%;
-                }
-            }
-        }
-
-        /*iPad*/
-        @media (min-width: 577px) and (max-width: 768px) {
+        /*ipad*/
+        @media (min-width: 577px) {
             $span: x-col-ipad-;
             @for $n from $start through $end {
                 &.#{$span}#{$n} {
@@ -139,15 +117,15 @@
         }
 
         /*窄屏PC*/
-        @media (min-width: 769px) and (max-width: 992px) {
-            $span: x-col-narrowPC-;
+        @media (min-width: 769px) {
+            $span: x-col-smallPC-;
             @for $n from $start through $end {
                 &.#{$span}#{$n} {
                     width: ($n / 24) * 100%;
                 }
             }
 
-            $offset: x-offset-narrowPC-;
+            $offset: x-offset-smallPC-;
             @for $n from $start through $end {
                 &.#{$offset}#{$n} {
                     margin-left: ($n / 24) * 100%;
@@ -155,16 +133,16 @@
             }
         }
 
-        /*PC*/
-        @media (min-width: 993px) and (max-width: 1200px) {
-            $span: x-col-pc-;
+        /*正常PC*/
+        @media (min-width: 993px) {
+            $span: x-col-normalPC-;
             @for $n from $start through $end {
                 &.#{$span}#{$n} {
                     width: ($n / 24) * 100%;
                 }
             }
 
-            $offset: x-offset-pc-;
+            $offset: x-offset-normalPC-;
             @for $n from $start through $end {
                 &.#{$offset}#{$n} {
                     margin-left: ($n / 24) * 100%;
@@ -174,14 +152,14 @@
 
         /*宽PC*/
         @media (min-width: 1201px) {
-            $span: x-col-widePC-;
+            $span: x-col-largePC-;
             @for $n from $start through $end {
                 &.#{$span}#{$n} {
                     width: ($n / 24) * 100%;
                 }
             }
 
-            $offset: x-offset-widePC-;
+            $offset: x-offset-largePC-;
             @for $n from $start through $end {
                 &.#{$offset}#{$n} {
                     margin-left: ($n / 24) * 100%;
