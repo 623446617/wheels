@@ -21,46 +21,84 @@
         #app {
             margin: 20px;
         }
+
+        .test {
+            height: 30px;
+            border: 1px solid lightblue;
+        }
     </style>
-    <link rel="stylesheet" href="./src/base.css" />
+    <link rel="stylesheet" href="./src/base.css"/>
 </head>
 <body>
 <div id="app">
     <p>no span</p>
     <x-row>
-        <x-col>8</x-col>
-        <x-col>8</x-col>
-        <x-col>8</x-col>
+        <x-col>
+            <div class="test">12</div>
+        </x-col>
+        <x-col>
+            <div class="test">12</div>
+        </x-col>
     </x-row>
 
     <p>span</p>
     <x-row>
-        <x-col span="6">6</x-col>
-        <x-col span="6">6</x-col>
-        <x-col span="6">6</x-col>
-        <x-col span="6">6</x-col>
-    </x-row>
-    <x-row>
-        <x-col span="4">4</x-col>
-        <x-col span="20">20</x-col>
+        <x-col span="4">
+            <div class="test">4</div>
+        </x-col>
+        <x-col span="20">
+            <div class="test">20</div>
+        </x-col>
     </x-row>
 
     <p>offset</p>
     <x-row>
-        <x-col span="4">4</x-col>
-        <x-col span="18" offset="2">18</x-col>
+        <x-col span="4">
+            <div class="test">4</div>
+        </x-col>
+        <x-col span="18" offset="2">
+            <div class="test">18</div>
+        </x-col>
     </x-row>
 
     <p>gutter</p>
     <x-row gutter="20">
-        <x-col >1</x-col>
-        <x-col span="2">2</x-col>
-        <x-col span="3">3</x-col>
-        <x-col span="4">4</x-col>
-        <x-col span="5">5</x-col>
-        <x-col span="6">6</x-col>
-        <x-col span="7">7</x-col>
-        <x-col span="8">8</x-col>
+        <x-col>
+            <div class="test">1</div>
+        </x-col>
+        <x-col span="2">
+            <div class="test">2</div>
+        </x-col>
+        <x-col span="3">
+            <div class="test">3</div>
+        </x-col>
+        <x-col span="4">
+            <div class="test">4</div>
+        </x-col>
+        <x-col span="5">
+            <div class="test">5</div>
+        </x-col>
+        <x-col span="6">
+            <div class="test">6</div>
+        </x-col>
+        <x-col span="7">
+            <div class="test">7</div>
+        </x-col>
+        <x-col span="8">
+            <div class="test">8</div>
+        </x-col>
+    </x-row>
+
+    <p>响应式</p>
+    <x-row>
+        <x-col :phone="{span: '2'}" :ipad="{span: '8'}" :narrow-pc="{span: '10'}" :pc="{span: '12'}"
+               :wide-pc="{span: '6'}">
+            <div class="test">1</div>
+        </x-col>
+        <x-col :phone="{span: '21', offset:'1'}" :ipad="{span: '16'}" :narrow-pc="{span: '14'}" :pc="{span: '12'}"
+               :wide-pc="{span: '6'}">
+            <div class="test">1</div>
+        </x-col>
     </x-row>
 
 

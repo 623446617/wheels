@@ -41,5 +41,7 @@
 <style scoped lang="scss">
     .x-row {
         display: flex;
+        /*换行*/
+        flex-wrap: wrap;
     }
 </style>
