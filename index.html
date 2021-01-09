@@ -44,60 +44,49 @@
     <p>span</p>
     <x-row>
         <x-col span="4">
-            <div class="test">4</div>
+            <div class="test">span="4"</div>
         </x-col>
         <x-col span="20">
-            <div class="test">20</div>
+            <div class="test">span="20"</div>
         </x-col>
     </x-row>
 
     <p>offset</p>
     <x-row>
         <x-col span="4">
-            <div class="test">4</div>
+            <div class="test">span="4"</div>
         </x-col>
         <x-col span="18" offset="2">
-            <div class="test">18</div>
+            <div class="test">span="18" offset="2"</div>
         </x-col>
     </x-row>
 
     <p>gutter</p>
     <x-row gutter="20">
-        <x-col>
-            <div class="test">1</div>
-        </x-col>
         <x-col span="2">
-            <div class="test">2</div>
-        </x-col>
-        <x-col span="3">
-            <div class="test">3</div>
-        </x-col>
-        <x-col span="4">
-            <div class="test">4</div>
+            <div class="test">span="2"</div>
         </x-col>
         <x-col span="5">
-            <div class="test">5</div>
+            <div class="test">span="5"</div>
         </x-col>
         <x-col span="6">
-            <div class="test">6</div>
+            <div class="test">span="6"</div>
         </x-col>
         <x-col span="7">
-            <div class="test">7</div>
+            <div class="test">span="7"</div>
         </x-col>
-        <x-col span="8">
-            <div class="test">8</div>
+        <x-col span="4">
+            <div class="test">span="4"</div>
         </x-col>
     </x-row>
 
     <p>响应式</p>
     <x-row>
-        <x-col :phone="{span: '2'}" :ipad="{span: '8'}" :narrow-pc="{span: '10'}" :pc="{span: '12'}"
-               :wide-pc="{span: '6'}">
-            <div class="test">1</div>
+        <x-col :phone="{span: '2'}" :ipad="{span: '8'}" :narrow-pc="{span: '10'}" :pc="{span: '14'}" :wide-pc="{span: '12'}">
+            <div class="test">:phone="{span: '2'}" :ipad="{span: '8'}" :narrow-pc="{span: '10'}" :pc="{span: '12'}" :wide-pc="{span: '6'}"</div>
         </x-col>
-        <x-col :phone="{span: '21', offset:'1'}" :ipad="{span: '16'}" :narrow-pc="{span: '14'}" :pc="{span: '12'}"
-               :wide-pc="{span: '6'}">
-            <div class="test">1</div>
+        <x-col :phone="{span: '21', offset:'1'}" :ipad="{span: '16'}" :narrow-pc="{span: '14'}" :pc="{span: '10'}" :wide-pc="{span: '12'}">
+            <div class="test">:phone="{span: '21', offset:'1'}" :ipad="{span: '16'}" :narrow-pc="{span: '14'}" :pc="{span: '10'}" :wide-pc="{span: '12'}"</div>
         </x-col>
     </x-row>
 
