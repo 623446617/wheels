@@ -30,8 +30,22 @@
             justify-content: center;
             align-items: center;
         }
-        .border {
-            border: 1px solid lightblue;
+        .header, .footer {
+            color: #fff;
+            background: #7dbcea;
+            height: 100%;
+        }
+        .content {
+            color: #fff;
+            background: rgba(16, 142, 233, 1);
+            height: 100%;
+        }
+
+        .sider {
+            color: #fff;
+            line-height: 120px;
+            background: #3ba0e9;
+            height: 100%;
         }
     </style>
     <link rel="stylesheet" href="./src/base.css"/>
@@ -41,76 +55,75 @@
     <div style="margin-top: 20px;">
         布局
         <div style="margin-top: 20px;">上-中-下</div>
-
-        <div style="height: 100px;">
+        <div style="height: 150px;">
             <x-layout>
-                <x-header class="border">
-                    header
+                <x-header>
+                    <div class="header">header</div>
                 </x-header>
-                <x-content class="border">
-                    content
+                <x-content>
+                    <div class="content">content</div>
                 </x-content>
-                <x-footer class="border">
-                    footer
+                <x-footer>
+                    <div class="footer">footer</div>
                 </x-footer>
             </x-layout>
         </div>
         <div style="margin-top: 20px;">上-中[左-右]-下</div>
-        <div style="height: 100px;">
+        <div style="height: 150px;">
             <x-layout>
-                <x-header class="border">
-                    header
+                <x-header>
+                    <div class="header">header</div>
                 </x-header>
                 <x-layout>
-                    <x-sider class="border">
-                        sider
+                    <x-sider>
+                        <div class="sider">sider</div>
                     </x-sider>
-                    <x-content class="border">
-                        content
+                    <x-content>
+                        <div class="content">content</div>
                     </x-content>
                 </x-layout>
-                <x-footer class="border">
-                    footer
+                <x-footer>
+                    <div class="footer">footer</div>
                 </x-footer>
             </x-layout>
         </div>
 
+
         <div style="margin-top: 20px;">上-中[左-右]-下</div>
-        <div style="height: 100px;">
+        <div style="height: 150px;">
             <x-layout>
-                <x-header class="border">
-                    header
+                <x-header>
+                    <div class="header">header</div>
                 </x-header>
                 <x-layout>
-                    <x-content class="border">
-                        content
+                    <x-content>
+                        <div class="content">content</div>
                     </x-content>
-                    <x-sider class="border">
-                        sider
+                    <x-sider>
+                        <div class="sider">sider</div>
                     </x-sider>
                 </x-layout>
-                <x-footer class="border">
-                    footer
+                <x-footer>
+                    <div class="footer">footer</div>
                 </x-footer>
             </x-layout>
         </div>
 
         <div style="margin-top: 20px;">左-右[上-中-下]</div>
-
-        <div style="height: 100px;">
+        <div style="height: 150px;">
             <x-layout>
-                <x-sider class="border">
-                    sider
+                <x-sider>
+                    <div class="sider">sider</div>
                 </x-sider>
                 <x-layout>
-                    <x-header class="border">
-                        header
+                    <x-header>
+                        <div class="header">header</div>
                     </x-header>
-                    <x-content class="border">
-                        content
+                    <x-content>
+                        <div class="content">content</div>
                     </x-content>
-                    <x-footer class="border">
-                        footer
+                    <x-footer>
+                        <div class="footer">footer</div>
                     </x-footer>
                 </x-layout>
             </x-layout>
