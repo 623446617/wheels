@@ -46,5 +46,6 @@ export {
     XContent,
     XHeader,
     XFooter,
-    XSider
+    XSider,
+    XToast
 };
