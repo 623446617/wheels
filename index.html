@@ -25,12 +25,103 @@
         .test {
             height: 30px;
             border: 1px solid lightblue;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        .border {
+            border: 1px solid lightblue;
         }
     </style>
     <link rel="stylesheet" href="./src/base.css"/>
 </head>
 <body>
 <div id="app">
+    <div style="margin-top: 20px;">
+        布局
+        <div style="margin-top: 20px;">上-中-下</div>
+
+        <div style="height: 100px;">
+            <x-layout>
+                <x-header class="border">
+                    header
+                </x-header>
+                <x-content class="border">
+                    content
+                </x-content>
+                <x-footer class="border">
+                    footer
+                </x-footer>
+            </x-layout>
+        </div>
+        <div style="margin-top: 20px;">上-中[左-右]-下</div>
+        <div style="height: 100px;">
+            <x-layout>
+                <x-header class="border">
+                    header
+                </x-header>
+                <x-layout>
+                    <x-sider class="border">
+                        sider
+                    </x-sider>
+                    <x-content class="border">
+                        content
+                    </x-content>
+                </x-layout>
+                <x-footer class="border">
+                    footer
+                </x-footer>
+            </x-layout>
+        </div>
+
+        <div style="margin-top: 20px;">上-中[左-右]-下</div>
+        <div style="height: 100px;">
+            <x-layout>
+                <x-header class="border">
+                    header
+                </x-header>
+                <x-layout>
+                    <x-content class="border">
+                        content
+                    </x-content>
+                    <x-sider class="border">
+                        sider
+                    </x-sider>
+                </x-layout>
+                <x-footer class="border">
+                    footer
+                </x-footer>
+            </x-layout>
+        </div>
+
+        <div style="margin-top: 20px;">左-右[上-中-下]</div>
+
+        <div style="height: 100px;">
+            <x-layout>
+                <x-sider class="border">
+                    sider
+                </x-sider>
+                <x-layout>
+                    <x-header class="border">
+                        header
+                    </x-header>
+                    <x-content class="border">
+                        content
+                    </x-content>
+                    <x-footer class="border">
+                        footer
+                    </x-footer>
+                </x-layout>
+            </x-layout>
+
+        </div>
+
+    </div>
+
+    <div style="margin-top: 20px;">
+        栅格
+    </div>
     <p>no span</p>
     <x-row>
         <x-col>
@@ -111,7 +202,9 @@
     </x-row>
 
 
-    <div style="margin-top: 20px;"></div>
+    <div style="margin-top: 20px;">
+        输入框
+    </div>
 
     <x-input value="normal" @change="xchange" @input="xinput" @focus="xfocus" @blur="xblur"></x-input>
     <x-input value="disabled" disabled></x-input>
@@ -120,7 +213,9 @@
     <x-input v-model="message"></x-input>
     {{message}}
 
-    <div style="margin-top: 20px;"></div>
+    <div style="margin-top: 20px;">
+        按钮
+    </div>
 
     <x-button icon="setting" icon-align="right" :loading="loading1" @xclick="loading1 = !loading1">按钮</x-button>
     <x-button icon="good" :loading="loading2" @xclick="loading2 = !loading2">按钮</x-button>

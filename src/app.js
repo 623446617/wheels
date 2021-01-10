@@ -5,6 +5,12 @@ import XButtonGroup from './x-button-group';
 import XInput from './x-input';
 import XRow from './x-row';
 import XCol from './x-col';
+import XLayout from './x-layout';
+import XContent from './x-content';
+import XHeader from './x-header';
+import XFooter from './x-footer';
+import XSider from './x-sider';
+
 // 注册全局组件
 Vue.component('x-button', XButton);
 Vue.component('x-icon', XIcon);
@@ -12,6 +18,11 @@ Vue.component('x-button-group', XButtonGroup);
 Vue.component('x-input', XInput);
 Vue.component('x-row', XRow);
 Vue.component('x-col', XCol);
+Vue.component('x-layout', XLayout);
+Vue.component('x-content', XContent);
+Vue.component('x-header', XHeader);
+Vue.component('x-footer', XFooter);
+Vue.component('x-sider', XSider);
 
 let app = new Vue({
     el: '#app',

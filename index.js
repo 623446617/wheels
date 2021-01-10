@@ -7,6 +7,11 @@ import XIcon from './src/x-icon';
 import XInput from './src/x-input';
 import XRow from './src/x-row';
 import XCol from './src/x-col';
+import XLayout from "./src/x-layout";
+import XContent from "./src/x-content";
+import XHeader from "./src/x-header";
+import XFooter from "./src/x-footer";
+import XSider from "./src/x-sider";
 
 // Vue插件
 const plugin = {
@@ -18,6 +23,11 @@ const plugin = {
         Vue.component('x-input', XInput);
         Vue.component('x-row', XRow);
         Vue.component('x-col', XCol);
+        Vue.component('x-layout', XLayout);
+        Vue.component('x-content', XContent);
+        Vue.component('x-header', XHeader);
+        Vue.component('x-footer', XFooter);
+        Vue.component('x-sider', XSider);
     }
 };
 
@@ -29,5 +39,10 @@ export {
     XIcon,
     XInput,
     XRow,
-    XCol
+    XCol,
+    XLayout,
+    XContent,
+    XHeader,
+    XFooter,
+    XSider
 };
