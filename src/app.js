@@ -10,6 +10,7 @@ import XContent from './x-content';
 import XHeader from './x-header';
 import XFooter from './x-footer';
 import XSider from './x-sider';
+import XToast from './x-toast';
 
 // 注册全局组件
 Vue.component('x-button', XButton);
@@ -23,6 +24,7 @@ Vue.component('x-content', XContent);
 Vue.component('x-header', XHeader);
 Vue.component('x-footer', XFooter);
 Vue.component('x-sider', XSider);
+Vue.use(XToast);
 
 let app = new Vue({
     el: '#app',
@@ -44,6 +46,9 @@ let app = new Vue({
         },
         xchange(param) {
             console.log(param);
+        },
+        showToast() {
+            this.$toast('nihao');
         }
     }
 });

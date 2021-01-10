@@ -12,6 +12,7 @@ import XContent from "./src/x-content";
 import XHeader from "./src/x-header";
 import XFooter from "./src/x-footer";
 import XSider from "./src/x-sider";
+import XToast from './src/x-toast';
 
 // Vue插件
 const plugin = {
@@ -28,6 +29,7 @@ const plugin = {
         Vue.component('x-header', XHeader);
         Vue.component('x-footer', XFooter);
         Vue.component('x-sider', XSider);
+        Vue.use(XToast);
     }
 };
 

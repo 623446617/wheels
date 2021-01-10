@@ -6,7 +6,7 @@
         <x-icon class="icon"
                 v-if="loading"
                 name="loading"></x-icon>
-        <div class="content">
+        <div class="x-button-content">
             <slot/>
         </div>
 
@@ -69,7 +69,7 @@
             outline: none;
         }
 
-        > .content {
+        > .x-button-content {
             order: 2;
         }
 
@@ -80,7 +80,7 @@
         }
 
         &.icon-right {
-            > .content {
+            > .x-button-content {
                 order: 1;
             }
 
