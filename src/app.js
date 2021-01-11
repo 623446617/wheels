@@ -48,7 +48,14 @@ let app = new Vue({
             console.log(param);
         },
         showToast() {
-            this.$toast('nihao');
+            this.$toast.show({
+                text: '<strong>aaamamamam</strong>',
+                closeText: '知道了',
+                enableHtml: true,
+                onClosed() {
+                    console.log('关闭');
+                }
+            }, 1000);
         }
     }
 });
