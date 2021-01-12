@@ -1,10 +1,11 @@
 <template>
-    <div v-if="display" class="x-toast" :class="{'x-toast-canClose': canClose, [`x-toast-${position}`]: true}">
-        <p v-if="enableHtml" class="x-toast-message" v-html="text"></p>
-        <p v-else class="x-toast-message">{{text}}</p>
-
-        <span v-if="canClose" class="x-toast-close" @click="hide">{{closeText}}</span>
-    </div>
+    <transition name="fade">
+        <div v-if="display" class="x-toast" :class="toastCls">
+            <p v-if="enableHtml" class="x-toast-message" v-html="text"></p>
+            <p v-else class="x-toast-message">{{text}}</p>
+            <span v-if="canClose" class="x-toast-close" @click="hide">{{closeText}}</span>
+        </div>
+    </transition>
 </template>
 
 <script>
@@ -22,6 +23,14 @@
                 timer: 0,           // 定时器
                 canClose: false,    // 是否显示按钮
                 display: false      // 显示toast
+            }
+        },
+        computed: {
+            toastCls() {
+                return {
+                    'x-toast-canClose': this.canClose,
+                    [`x-toast-${this.position}`]: true
+                }
             }
         },
         methods: {
@@ -73,7 +82,15 @@
 </script>
 
 <style scoped lang="scss">
+
+    .fade-enter-active, .fade-leave-active {
+        transition: opacity .3s;
+    }
+    .fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+        opacity: 0;
+    }
     .x-toast {
+        animation-fill-mode: forwards;
         position: fixed;
         background-color: rgba(0, 0, 0, .7);
         padding: 5px 10px;

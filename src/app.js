@@ -52,11 +52,11 @@ let app = new Vue({
                 text: '<strong>aaamamamam</strong>',
                 closeText: '知道了',
                 enableHtml: true,
-                position: 'bottom',
+                position: 'center',
                 onClosed() {
                     console.log('关闭');
                 }
-            });
+            }, 1000);
         }
     }
 });
