@@ -53,8 +53,9 @@
 <body>
 <div id="app">
     <div style="margin-top: 20px;">Toast组件</div>
-    <x-button @click.native="showToast">弹出toast</x-button>
-
+    <x-button @click.native="showToast('top')">toast-top</x-button>
+    <x-button @click.native="showToast('center')">toast-center</x-button>
+    <x-button @click.native="showToast('bottom')">toast-bottom</x-button>
     <div style="margin-top: 20px;">
         布局
         <div style="margin-top: 20px;">上-中-下</div>

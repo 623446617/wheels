@@ -86,18 +86,18 @@
     .fade-enter-active, .fade-leave-active {
         transition: opacity .3s;
     }
-    .fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+
+    .fade-enter, .fade-leave-to {
         opacity: 0;
     }
+
     .x-toast {
-        animation-fill-mode: forwards;
         position: fixed;
         background-color: rgba(0, 0, 0, .7);
         padding: 5px 10px;
         border-radius: 3px;
         color: #ffffff;
         display: flex;
-        flex-wrap: wrap;
 
         &.x-toast-center {
             top: 50%;
@@ -109,21 +109,27 @@
             top: 0;
             left: 50%;
             transform: translateX(-50%);
+            border-top-left-radius: 0;
+            border-top-right-radius: 0;
         }
 
         &.x-toast-bottom {
             bottom: 0;
             left: 50%;
             transform: translateX(-50%);
+            border-bottom-left-radius: 0;
+            border-bottom-right-radius: 0;
         }
 
 
         .x-toast-message {
+            width: max-content;
             max-width: 150px;
             word-break: break-all;
         }
 
         &.x-toast-canClose {
+
             .x-toast-message,
             .x-toast-close {
                 padding: 0 10px;
@@ -142,6 +148,7 @@
                 display: flex;
                 justify-content: center;
                 align-items: center;
+                white-space: nowrap;
             }
         }
 

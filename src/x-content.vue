@@ -12,6 +12,6 @@
 
 <style scoped lang="scss">
     .x-content {
-        flex-grow: 1;
+        flex: 1;
     }
 </style>

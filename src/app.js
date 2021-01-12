@@ -47,16 +47,16 @@ let app = new Vue({
         xchange(param) {
             console.log(param);
         },
-        showToast() {
+        showToast(p) {
             this.$toast.show({
-                text: '<strong>aaamamamam</strong>',
+                text: '接受到我的消息了吗',
                 closeText: '知道了',
                 enableHtml: true,
-                position: 'center',
+                position: p,
                 onClosed() {
                     console.log('关闭');
                 }
-            }, 1000);
+            });
         }
     }
 });
