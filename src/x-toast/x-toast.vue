@@ -1,5 +1,5 @@
 <template>
-    <div v-if="display" class="x-toast" :class="{'x-toast-canClose': canClose}">
+    <div v-if="display" class="x-toast" :class="{'x-toast-canClose': canClose, [`x-toast-${position}`]: true}">
         <p v-if="enableHtml" class="x-toast-message" v-html="text"></p>
         <p v-else class="x-toast-message">{{text}}</p>
 
@@ -8,6 +8,7 @@
 </template>
 
 <script>
+    const positions = ['top', 'center', 'bottom']
     export default {
         name: "x-toast",
         data() {
@@ -16,6 +17,7 @@
                 closeText: '',      // 关闭按钮文字
                 callback: null,     // 关闭回调
                 enableHtml: false,  // 是否显示html
+                position: positions[1], // 位置
                 /*内部*/
                 timer: 0,           // 定时器
                 canClose: false,    // 是否显示按钮
@@ -40,11 +42,12 @@
                 if (typeof param === 'string') {
                     this.text = param;
                 } else {
-                    const {text, closeText = '关闭', enableHtml, onClosed} = param;
+                    const {text, closeText = '关闭', position = positions[1], enableHtml, onClosed} = param;
                     this.text = text;
                     this.closeText = closeText;
                     this.callback = onClosed;
                     this.enableHtml = enableHtml;
+                    this.position = this.setPosition(position);
                 }
             },
             autoClose(delay) {
@@ -57,6 +60,13 @@
             hide() {
                 this.display = false;
                 this.callback && this.callback();
+            },
+            setPosition(p) {
+                if (!positions.includes(p)) {
+                    throw new Error('');
+                }
+
+                return p;
             }
         }
     };
@@ -65,15 +75,31 @@
 <style scoped lang="scss">
     .x-toast {
         position: fixed;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%);
         background-color: rgba(0, 0, 0, .7);
         padding: 5px 10px;
         border-radius: 3px;
         color: #ffffff;
         display: flex;
         flex-wrap: wrap;
+
+        &.x-toast-center {
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%);
+        }
+
+        &.x-toast-top {
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        &.x-toast-bottom {
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
 
         .x-toast-message {
             max-width: 150px;
