@@ -52,6 +52,17 @@
 </head>
 <body>
 <div id="app">
+    <div style="margin-top: 20px;">Tabs组件</div>
+
+    <x-tabs>
+        <x-tabs-item label="标签1">
+            <div>123</div>
+        </x-tabs-item>
+        <x-tabs-item label="标签2">two</x-tabs-item>
+        <x-tabs-item label="标签3">three</x-tabs-item>
+    </x-tabs>
+
+
     <div style="margin-top: 20px;">Toast组件</div>
     <x-button @click.native="showToast('top')">toast-top</x-button>
     <x-button @click.native="showToast('center')">toast-center</x-button>

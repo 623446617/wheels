@@ -11,6 +11,8 @@ import XHeader from './x-header';
 import XFooter from './x-footer';
 import XSider from './x-sider';
 import XToast from './x-toast';
+import XTabs from './x-tabs';
+import XTabsItem from './x-tabs-item';
 
 // 注册全局组件
 Vue.component('x-button', XButton);
@@ -25,6 +27,8 @@ Vue.component('x-header', XHeader);
 Vue.component('x-footer', XFooter);
 Vue.component('x-sider', XSider);
 Vue.use(XToast);
+Vue.component('x-tabs', XTabs);
+Vue.component('x-tabs-item', XTabsItem);
 
 let app = new Vue({
     el: '#app',
