@@ -40,9 +40,12 @@
         methods: {
             // 初始数据
             init() {
-                this.items = this.$children.map(vm => ({
-                    label: vm.label
-                }));
+                this.items = this.$children.map(vm => {
+                    return {
+                        label: vm.label,
+                        el: vm.$el
+                    }
+                });
             },
             // 初始化标签
             initTabs() {
@@ -64,14 +67,23 @@
 
                 this.lineLeft = w;
             },
-            translateX(i) {
+            // 选择tab内容
+            selectTabContent(i) {
                 this.body.x = `-${100 * i}%`;
+
+                // 选中则visible，其余为hidden(优化滚动动画效果)
+                this.items.forEach((item, index) => {
+                    item.el.style.visibility = 'hidden';
+                    if (i === index) {
+                        item.el.style.visibility = 'visible';
+                    }
+                });
             },
             itemClick(e, i) {
                 if (this.select !== i) {
                     let li = e.currentTarget;
                     this.selectTab(li);
-                    this.translateX(i);
+                    this.selectTabContent(i);
                     this.select = i;
                 }
             },
@@ -128,13 +140,17 @@
 
         .x-tabs-content {
             width: 100%;
+            overflow: hidden;
+
             .x-tabs-body {
                 width: 100%;
                 white-space: nowrap;
                 transform: translateX(0);
-                transition: transform 0.5s;
-                
+                transition: transform $animate-time;
+                font-size: 0;
+
                 > * {
+                    font-size: initial;
                     display: inline-block;
                     vertical-align: middle;
                 }
