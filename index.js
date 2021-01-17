@@ -13,6 +13,9 @@ import XHeader from "./src/x-header";
 import XFooter from "./src/x-footer";
 import XSider from "./src/x-sider";
 import XToast from './src/x-toast';
+import Vue from "vue";
+import XTabs from "./src/x-tabs";
+import XTabsItem from "./src/x-tabs-item";
 
 // Vue插件
 const plugin = {
@@ -30,6 +33,8 @@ const plugin = {
         Vue.component('x-footer', XFooter);
         Vue.component('x-sider', XSider);
         Vue.use(XToast);
+        Vue.component('x-tabs', XTabs);
+        Vue.component('x-tabs-item', XTabsItem);
     }
 };
 
@@ -47,5 +52,7 @@ export {
     XHeader,
     XFooter,
     XSider,
-    XToast
+    XToast,
+    XTabs,
+    XTabsItem
 };
