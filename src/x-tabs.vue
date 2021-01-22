@@ -86,9 +86,6 @@
                     this.selectTabContent(i);
                     this.select = i;
                 }
-            },
-            setLineState() {
-
             }
         }
     };
