@@ -31,6 +31,8 @@ Vue.use(XToast);
 Vue.component('x-tabs', XTabs);
 Vue.component('x-tabs-item', XTabsItem);
 Vue.component('x-popover', XPopover);
+// 添加事件总线
+Vue.prototype.$XWHEELEVENTBUS = new Vue();
 
 let app = new Vue({
     el: '#app',
