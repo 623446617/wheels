@@ -10,6 +10,7 @@
         </div>
         <slot></slot>
         <div class="test1"></div>
+        <div class="test2"></div>
     </div>
 </template>
 
@@ -22,6 +23,21 @@
                 position: {},
                 popoverRef: null,
                 arrowLayout: ''
+            }
+        },
+        props: {
+            layout: {
+                type: String,
+                default: 'vertical',
+                validator(val) {
+                    let bool = ['vertical', 'horizontal'].indexOf(val) !== -1;
+
+                    if (!bool) {
+                        throw new Error(`props 'layout' is not included in ['vertical', 'horizontal'].`);
+                    }
+
+                    return bool;
+                }
             }
         },
         created() {
@@ -53,6 +69,9 @@
                 // 显示当前的popover，隐藏其他的popover
                 this.$XWHEELEVENTBUS.$emit('XWHEELPOPOVERDISMISS', this);
 
+                // popover添加到body
+                this.addPopoverToBody();
+
                 this.visible = !this.visible;
 
                 if (this.visible) {
@@ -64,8 +83,6 @@
                     document.removeEventListener('click', this.documentEventHandler);
                     this.clearPopoverPosition();
                 }
-
-                this.addPopoverToBody();
             },
             // 将popover添加到body上
             addPopoverToBody() {
@@ -108,16 +125,20 @@
                     arrowLayout = 'top';
                 }
 
+                const popover = this.$refs['popover'];
+                const width = popover.clientWidth;
+                console.log(width)
+
                 // 箭头居左、中、右
-                if (rect.left < 200) {
+                if (rect.left < width) {
                     position.left = `${rect.left}px`;
                     arrowLayout += '-left';
-                } else if (documentWidth - rect.right < 200) {
+                } else if (documentWidth - rect.right < width) {
                     position.right = `${documentWidth - rect.right}px`;
                     arrowLayout += '-right';
                 } else {
                     arrowLayout += '-center';
-                    position.left = `${rect.left + rect.width / 2 - 100}px`;
+                    position.left = `${rect.left + rect.width / 2 - width / 2}px`;
                 }
 
                 this.arrowLayout = arrowLayout;
@@ -150,6 +171,14 @@
         height: 1px;
         background-color: red;
     }
+    .test2 {
+        position: fixed;
+        top: 0;
+        left: 50%;
+        width: 1px;
+        height: 100%;
+        background-color: red;
+    }
 
     .x-popover-wrapper {
         display: inline-block;
@@ -157,12 +186,15 @@
     }
 
     .x-popover {
-        width: 200px;
+        max-width: 200px;
+        min-width: 50px;
+        word-break: break-all;
 
         border: 1px solid;
         border-radius: 5px;
         padding: 5px 10px;
         background-color: #ffffff;
+        box-shadow: 0 2px 5px 0 rgba(black, 0.1);
 
         $arrow-l: 10px;
 
