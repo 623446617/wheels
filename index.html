@@ -47,43 +47,60 @@
             background: #3ba0e9;
             height: 100%;
         }
+
+        .test1 {
+            position: fixed;
+            top: 50%;
+            left: 0;
+            width: 100%;
+            height: 1px;
+            background-color: red;
+        }
+
+        .test2 {
+            position: fixed;
+            top: 0;
+            left: 50%;
+            width: 1px;
+            height: 100%;
+            background-color: red;
+        }
     </style>
     <link rel="stylesheet" href="./src/base.css"/>
 </head>
 <body>
 <div id="app">
     <div style="margin-top: 20px;">Popover组件</div>
-
-    <x-popover>
-        <template v-slot:content>
-            <div>我是popover1我是popover1我是popover1我是popover1我是popover1我是popover1我是popover1我是popover1我是popover1</div>
-        </template>
-
-        <x-button>点我</x-button>
-    </x-popover>
-
-
-    <x-popover>
-        <template v-slot:content>
-            <div>opoveropoveropoveropoveropoveropoveropoveropoveropoveropoveropoveropoveropoveropoveropoveropoveropoveropoveropoveropoveropoveropoveropoveropoveropoveropoveropoveropoveropover</div>
-        </template>
-
-        <x-button>点我</x-button>
-    </x-popover>
+    <p>根据距离窗口边缘的距离自动调整位置</p>
 
     <x-popover>
         <template v-slot:content>
             <div>我是popover2</div>
         </template>
 
-        <x-button>点我</x-button>
+        <x-button>竖直方向popover</x-button>
     </x-popover>
     <x-popover>
         <template v-slot:content>
             <div>我是popover2</div>
         </template>
 
-        <x-button>点我</x-button>
+        <x-button>竖直方向popover</x-button>
+    </x-popover>
+
+    <x-popover layout="horizontal">
+        <template v-slot:content>
+            <div>我是popover2</div>
+        </template>
+
+        <x-button>水平popover</x-button>
+    </x-popover>
+    <x-popover layout="horizontal">
+        <template v-slot:content>
+            <div>我是popover2</div>
+        </template>
+
+        <x-button>水平popover</x-button>
     </x-popover>
 
 
@@ -137,119 +154,6 @@
                 </x-footer>
             </x-layout>
         </div>
-
-
-        <x-popover>
-            <template v-slot:content>
-                <div>opoveropoveropoveropoveropoveropoveropoveropoveropoveropoveropoveropoveropoveropoveropoveropoveropoveropoveropoveropoveropoveropoveropoveropoveropoveropoveropoveropoveropover</div>
-            </template>
-
-            <x-button>点我</x-button>
-        </x-popover>
-        <x-popover>
-            <template v-slot:content>
-            </template>
-
-            <x-button>点我</x-button>
-        </x-popover>
-        <x-popover>
-            <template v-slot:content>
-                <div>我是popover1</div>
-            </template>
-
-            <x-button>点我</x-button>
-        </x-popover>
-        <x-popover>
-            <template v-slot:content>
-                <div>我是popover1</div>
-            </template>
-
-            <x-button>点我</x-button>
-        </x-popover>
-        <x-popover>
-            <template v-slot:content>
-                <div>我是popover1</div>
-            </template>
-
-            <x-button>点我</x-button>
-        </x-popover>
-        <x-popover>
-            <template v-slot:content>
-                <div>我是popover1</div>
-            </template>
-
-            <x-button>点我</x-button>
-        </x-popover>
-        <x-popover>
-            <template v-slot:content>
-                <div>我是popover1</div>
-            </template>
-
-            <x-button>点我</x-button>
-        </x-popover>
-        <x-popover>
-            <template v-slot:content>
-                <div>我是popover1</div>
-            </template>
-
-            <x-button>点我</x-button>
-        </x-popover>
-        <x-popover>
-            <template v-slot:content>
-                <div>我是popover1</div>
-            </template>
-
-            <x-button>点我</x-button>
-        </x-popover>
-        <x-popover>
-            <template v-slot:content>
-                <div>我是popover1</div>
-            </template>
-
-            <x-button>点我</x-button>
-        </x-popover>
-        <x-popover>
-            <template v-slot:content>
-                <div>我是popover1</div>
-            </template>
-
-            <x-button>点我</x-button>
-        </x-popover>
-        <x-popover>
-            <template v-slot:content>
-                <div>我是popover1</div>
-            </template>
-
-            <x-button>点我</x-button>
-        </x-popover>
-        <x-popover>
-            <template v-slot:content>
-                <div>我是popover1</div>
-            </template>
-
-            <x-button>点我</x-button>
-        </x-popover>
-        <x-popover>
-            <template v-slot:content>
-                <div>我是popover1</div>
-            </template>
-
-            <x-button>点我</x-button>
-        </x-popover>
-        <x-popover>
-            <template v-slot:content>
-                <div>我是popover1</div>
-            </template>
-
-            <x-button>点我</x-button>
-        </x-popover>
-        <x-popover>
-            <template v-slot:content>
-                <div>我是popover1</div>
-            </template>
-
-            <x-button>点我</x-button>
-        </x-popover>
 
         <div style="margin-top: 20px;">上-中[左-右]-下</div>
         <div style="height: 150px;">
@@ -400,6 +304,8 @@
         <x-button icon="right" icon-align="right">上一页</x-button>
     </x-button-group>
     <x-icon name="loading"></x-icon>
+    <div class="test1"></div>
+    <div class="test2"></div>
 </div>
 
 <!-- 单元测试用 -->
