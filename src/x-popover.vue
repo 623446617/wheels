@@ -1,5 +1,5 @@
 <template>
-    <div class="x-popover-wrapper" ref="wrapper" @click.stop="click">
+    <div class="x-popover-wrapper" ref="wrapper">
         <div ref="popover"
              @click.stop
              class="x-popover"
@@ -25,6 +25,19 @@
             }
         },
         props: {
+            trigger: {
+                type: String,
+                default: 'click',
+                validator(val) {
+                    let bool = ['click', 'hover'].indexOf(val) !== -1;
+
+                    if (!bool) {
+                        throw new Error(`props 'trigger' is not included in ['click', 'hover'].`);
+                    }
+
+                    return bool;
+                }
+            },
             layout: {
                 type: String,
                 default: 'vertical',
@@ -48,11 +61,20 @@
         },
         mounted() {
             this.addListener();
+            this.bindEvents();
         },
         destroyed() {
             this.removeListener();
         },
         methods: {
+            bindEvents() {
+              if (this.trigger === 'click') {
+                  this.$refs.wrapper.addEventListener('click', this.click);
+              } else if (this.trigger === 'hover') {
+                  this.$refs.wrapper.addEventListener('mouseenter', this.showPopover);
+                  this.$refs.wrapper.addEventListener('mouseleave', this.hidePopover);
+              }
+            },
             addListener() {
                 // 根据window滚动事件计算popover位置
                 document.addEventListener('scroll', this.popoverInWindowPosition);
@@ -66,23 +88,32 @@
                 document.removeEventListener('click', this.documentEventHandler);
             },
 
-            click() {
+            showPopover() {
+                this.visible = true;
+
                 // 显示当前的popover，隐藏其他的popover
                 this.$XWHEELEVENTBUS.$emit('XWHEELPOPOVERDISMISS', this);
 
                 // popover添加到body
                 this.addPopoverToBody();
 
-                this.visible = !this.visible;
+                this.$nextTick(() => {
+                    document.addEventListener('click', this.documentEventHandler);
+                    this.popoverInWindowPosition();
+                });
+            },
+            hidePopover() {
+                this.visible = false;
+                document.removeEventListener('click', this.documentEventHandler);
+                this.clearPopoverPosition();
+            },
 
-                if (this.visible) {
-                    this.$nextTick(() => {
-                        document.addEventListener('click', this.documentEventHandler);
-                        this.popoverInWindowPosition();
-                    });
+            click(e) {
+                e.stopPropagation();
+                if (!this.visible) {
+                    this.showPopover();
                 } else {
-                    document.removeEventListener('click', this.documentEventHandler);
-                    this.clearPopoverPosition();
+                    this.hidePopover();
                 }
             },
 
