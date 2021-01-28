@@ -1,5 +1,5 @@
 <template>
-    <div class="x-popover-wrapper" ref="wrapper">
+    <div class="x-popover-wrapper" ref="wrapper" @click.stop >
         <div ref="popover"
              @click.stop
              class="x-popover"
@@ -60,14 +60,16 @@
             });
         },
         mounted() {
-            this.addListener();
-            this.bindEvents();
+            this.systemBindEvents();
+            this.popoverBindEvents();
         },
         destroyed() {
-            this.removeListener();
+            this.systemRemoveEvents();
+            this.popoverRemoveEvents();
         },
         methods: {
-            bindEvents() {
+            // popover绑定事件
+            popoverBindEvents() {
               if (this.trigger === 'click') {
                   this.$refs.wrapper.addEventListener('click', this.click);
               } else if (this.trigger === 'hover') {
@@ -75,19 +77,28 @@
                   this.$refs.wrapper.addEventListener('mouseleave', this.hidePopover);
               }
             },
-            addListener() {
-                // 根据window滚动事件计算popover位置
+
+            // popover移除事件
+            popoverRemoveEvents() {
+                this.$refs.wrapper.removeEventListener('click', this.click);
+                this.$refs.wrapper.removeEventListener('mouseenter', this.showPopover);
+                this.$refs.wrapper.removeEventListener('mouseleave', this.hidePopover);
+            },
+
+            // 系统绑定事件
+            systemBindEvents() {
                 document.addEventListener('scroll', this.popoverInWindowPosition);
                 window.addEventListener('resize', this.popoverInWindowPosition);
             },
 
-            removeListener() {
-                // 移出document上的监听
+            // 系统移除事件
+            systemRemoveEvents() {
                 document.removeEventListener('scroll', this.popoverInWindowPosition);
                 window.removeEventListener('resize', this.popoverInWindowPosition);
                 document.removeEventListener('click', this.documentEventHandler);
             },
 
+            // 显示popover
             showPopover() {
                 this.visible = true;
 
@@ -102,12 +113,15 @@
                     this.popoverInWindowPosition();
                 });
             },
+
+            // 隐藏popover
             hidePopover() {
                 this.visible = false;
                 document.removeEventListener('click', this.documentEventHandler);
                 this.clearPopoverPosition();
             },
 
+            // 点击事件
             click(e) {
                 e.stopPropagation();
                 if (!this.visible) {
@@ -133,7 +147,7 @@
             },
 
             // 竖直方向位置
-            verticalPosition(wrapperRect, popover, documentHeight, documentWidth, margin = 15) {
+            verticalPosition(wrapperRect, popover, documentHeight, documentWidth, margin = 10) {
                 let position = {};
                 let arrowLayout = '';
 
@@ -176,7 +190,7 @@
             },
 
             // 水平方向位置
-            horizontalPosition(wrapperRect, popover, documentHeight, documentWidth, margin = 15) {
+            horizontalPosition(wrapperRect, popover, documentHeight, documentWidth, margin = 10) {
                 let position = {};
                 let arrowLayout = '';
 
@@ -264,7 +278,7 @@
         word-break: break-all;
 
         border-radius: 5px;
-        padding: 5px 10px;
+        padding: 8px 10px;
         background-color: #ffffff;
         box-shadow: 0 1px 6px $border-color;
 
