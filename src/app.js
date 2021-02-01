@@ -14,6 +14,8 @@ import XToast from './x-toast';
 import XTabs from './x-tabs';
 import XTabsItem from './x-tabs-item';
 import XPopover from './x-popover';
+import XCollapse from './x-collapse';
+import XCollapseItem from './x-collapse-item';
 
 // 注册全局组件
 Vue.component('x-button', XButton);
@@ -31,6 +33,8 @@ Vue.use(XToast);
 Vue.component('x-tabs', XTabs);
 Vue.component('x-tabs-item', XTabsItem);
 Vue.component('x-popover', XPopover);
+Vue.component('x-collapse', XCollapse);
+Vue.component('x-collapse-item', XCollapseItem);
 // 添加事件总线
 Vue.prototype.$XWHEELEVENTBUS = new Vue();
 
