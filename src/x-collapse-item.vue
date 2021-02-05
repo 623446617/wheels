@@ -23,6 +23,7 @@
             }
         },
         watch: {
+          // 监听active变化
           active(val) {
               if (val) {
                   this.$refs.content.style.height = `${this.height}px`;
@@ -33,7 +34,8 @@
         },
         methods: {
             click() {
-                this.$XWHEELEVENTBUS.$emit('XCOLLAPSEITEM-ACTIVE', this);
+                // 触发父组件事件 （难想...）
+                this.$parent.collapseItemToggle && this.$parent.collapseItemToggle(this);
             }
         },
         mounted() {

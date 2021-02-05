@@ -8,7 +8,7 @@
     export default {
         name: "x-collapse",
         props: {
-            // 单个展开，多个展开
+            // 单项展开，多项展开
             mode: {
                 type: String,
                 default: 'single',
@@ -23,20 +23,26 @@
                 }
             }
         },
-        mounted() {
-            this.$XWHEELEVENTBUS.$on('XCOLLAPSEITEM-ACTIVE', (vm) => {
+        methods: {
+            // 子组件点击时触发
+            collapseItemToggle(vm) {
                 if (this.mode === 'single') {
-                    this.$children.forEach(child => {
-                        if (child !== vm) {
-                            child.active = false;
-                        } else {
-                            vm.active = !child.active;
-                        }
-                    });
-                } else if (this.mode === 'multiple') {
+                    if (vm.active) {
+
+                        // 点击的子组件是展开的，就关闭
+                        vm.active = false;
+                    } else {
+
+                        // 点击的子组件是关闭的，则先关闭其他子组件，在展开当前子组件
+                        this.$children
+                            .filter(child => child !== vm)
+                            .forEach(child => child.active = false);
+                        vm.active = true;
+                    }
+                } else {
                     vm.active = !vm.active;
                 }
-            });
+            }
         }
     };
 </script>
