@@ -14,7 +14,8 @@
     export default {
         name: "x-collapse-item",
         props: {
-            title: String
+            title: String,
+            tag: String
         },
         data() {
             return {
