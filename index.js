@@ -13,9 +13,11 @@ import XHeader from "./src/x-header";
 import XFooter from "./src/x-footer";
 import XSider from "./src/x-sider";
 import XToast from './src/x-toast';
-import Vue from "vue";
 import XTabs from "./src/x-tabs";
 import XTabsItem from "./src/x-tabs-item";
+import XPopover from './src/x-popover';
+import XCollapse from './src/x-collapse';
+import XCollapseItem from './src/x-collapse-item';
 
 // Vue插件
 const plugin = {
@@ -35,6 +37,9 @@ const plugin = {
         Vue.use(XToast);
         Vue.component('x-tabs', XTabs);
         Vue.component('x-tabs-item', XTabsItem);
+        Vue.component('x-popover', XPopover);
+        Vue.component('x-collapse', XCollapse);
+        Vue.component('x-collapse-item', XCollapseItem);
     }
 };
 
