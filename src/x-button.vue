@@ -1,5 +1,5 @@
 <template>
-    <button class="x-button" :class="{[`icon-${iconAlign}`]: true}" @click="$emit('xclick')">
+    <button class="x-button" :class="{[`icon-${iconAlign}`]: true}" @click="$emit('click')">
         <x-icon class="icon"
                 v-if="icon && !loading"
                 :name="icon"></x-icon>
@@ -67,6 +67,14 @@
 
         &:focus {
             outline: none;
+        }
+
+        &[disabled] {
+            color: var(--disabled-color);
+            background-color: var(--disabled-bg-color);
+            &:hover {
+                border-color: var(--border-color);
+            }
         }
 
         > .x-button-content {

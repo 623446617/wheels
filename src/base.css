@@ -8,6 +8,8 @@
     --border-color: #999;
     --border-color-hover: #7d7d7d;
     --color: #333;
+    --disabled-bg-color: rgb(235, 235, 228);
+    --disabled-color: #bbb;
 }
 
 html, body {
