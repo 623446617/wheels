@@ -72,6 +72,7 @@
         &[disabled] {
             color: var(--disabled-color);
             background-color: var(--disabled-bg-color);
+            cursor: not-allowed;
             &:hover {
                 border-color: var(--border-color);
             }
