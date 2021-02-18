@@ -96,6 +96,7 @@
             border-bottom-width: 1px;
             border-bottom-color: transparent;
             transition: all 0.3s ease-in-out;
+            cursor: pointer;
 
             /* 箭头 */
             .x-collapse-item-arrow {

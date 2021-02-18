@@ -49,8 +49,6 @@
             },
             // 子组件点击时触发
             collapseItemToggle(vm) {
-                console.log(vm);
-
                 if (this.mode === 'single') {
                     let tag = '';
                     if (vm.active) {

@@ -33,7 +33,6 @@
             }
         },
         mounted() {
-            console.log(this.$children);
             this.init();
             this.initTabs();
         },
