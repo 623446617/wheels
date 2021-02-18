@@ -150,7 +150,7 @@
             }
         }
 
-        /*宽PC*/
+        /*宽屏PC*/
         @media (min-width: 1201px) {
             $span: x-col-largePC-;
             @for $n from $start through $end {
