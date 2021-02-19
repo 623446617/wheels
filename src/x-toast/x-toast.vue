@@ -73,8 +73,8 @@
             autoClose(delay) {
                 window.clearTimeout(this.timer);
                 this.timer = setTimeout(() => {
-                    this.hide();
                     window.clearTimeout(this.timer);
+                    this.hide();
                 }, delay);
             },
             hide() {
