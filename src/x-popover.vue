@@ -282,6 +282,8 @@
         background-color: #ffffff;
         box-shadow: 0 1px 6px $border-color;
 
+        z-index: 99;
+
         $arrow-l: 10px;
 
         .x-popover-arrow {
