@@ -15,7 +15,7 @@
         data() {
             return {
                 text: '',           // 文字
-                closeText: '',      // 关闭按钮文字
+                closeText: '关闭',      // 关闭按钮文字
                 callback: null,     // 关闭回调
                 enableHtml: false,  // 是否显示html
                 position: positions[1], // 位置
@@ -34,7 +34,18 @@
             }
         },
         methods: {
+            init() {
+                this.text = '';
+                this.closeText = '关闭';
+                this.callback = null;
+                this.enableHtml = false;
+                this.position = positions[1];
+                this.timer = 0;
+                this.canClose = false;
+                this.display = false;
+            },
             show(param, delay = 0) {
+                this.init();
                 this.initToast(param);
 
                 if (delay !== 0) {

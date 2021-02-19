@@ -62,7 +62,8 @@ let app = new Vue({
             console.log(param);
         },
         showToast(p) {
-            this.$toast.show({
+            this.$toast.show('这是一段文字');
+            /*this.$toast.show({
                 text: '接受到我的消息了吗',
                 closeText: '知道了',
                 enableHtml: true,
@@ -70,7 +71,10 @@ let app = new Vue({
                 onClosed() {
                     console.log('关闭');
                 }
-            });
+            });*/
+        },
+        showToast1(p) {
+            this.$toast.show('这是一段文字', 1000);
         }
     }
 });

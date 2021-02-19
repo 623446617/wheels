@@ -4,6 +4,7 @@
                :value="value"
                :disabled="disabled"
                :readonly="readonly"
+               :placeholder="placeholder"
                @focus="$emit('focus', $event.target.value)"
                @blur="$emit('blur', $event.target.value)"
                @input="$emit('input', $event.target.value)"
@@ -24,6 +25,7 @@
             value: {
                 type: String | Number
             },
+            placeholder: String,
             disabled: {
                 type: Boolean,
                 default: false

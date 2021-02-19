@@ -171,7 +171,7 @@
 
     <div style="margin-top: 20px;">Toast组件</div>
     <x-button @click.native="showToast('top')">toast-top</x-button>
-    <x-button @click.native="showToast('center')">toast-center</x-button>
+    <x-button @click.native="showToast1('center')">toast-center</x-button>
     <x-button @click.native="showToast('bottom')">toast-bottom</x-button>
     <div style="margin-top: 20px;">
         布局
@@ -342,7 +342,7 @@
     <x-input value="disabled" disabled></x-input>
     <x-input value="readonly" readonly></x-input>
     <x-input value="error" :error="true" message="错误信息"></x-input>
-    <x-input v-model="message"></x-input>
+    <x-input placeholder="123" v-model="message"></x-input>
     {{message}}
 
     <div style="margin-top: 20px;">
