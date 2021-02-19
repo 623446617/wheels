@@ -40,6 +40,9 @@ const plugin = {
         Vue.component('x-popover', XPopover);
         Vue.component('x-collapse', XCollapse);
         Vue.component('x-collapse-item', XCollapseItem);
+
+        // 添加事件总线
+        Vue.prototype.$XWHEELEVENTBUS = new Vue();
     }
 };
 
