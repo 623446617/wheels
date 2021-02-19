@@ -25,14 +25,14 @@
             }
         },
         props: {
-            trigger: {
+            mode: {
                 type: String,
                 default: 'click',
                 validator(val) {
                     let bool = ['click', 'hover'].indexOf(val) !== -1;
 
                     if (!bool) {
-                        throw new Error(`props 'trigger' is not included in ['click', 'hover'].`);
+                        throw new Error(`props 'mode' is not included in ['click', 'hover'].`);
                     }
 
                     return bool;
@@ -70,9 +70,9 @@
         methods: {
             // popover绑定事件
             popoverBindEvents() {
-              if (this.trigger === 'click') {
+              if (this.mode === 'click') {
                   this.$refs.wrapper.addEventListener('click', this.click);
-              } else if (this.trigger === 'hover') {
+              } else if (this.mode === 'hover') {
                   this.$refs.wrapper.addEventListener('mouseenter', this.showPopover);
                   this.$refs.wrapper.addEventListener('mouseleave', this.hidePopover);
               }
