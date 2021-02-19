@@ -109,6 +109,7 @@
         border-radius: 3px;
         color: #ffffff;
         display: flex;
+        z-index: 99;
 
         &.x-toast-center {
             top: 50%;
