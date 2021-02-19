@@ -65,7 +65,7 @@
         },
         destroyed() {
             this.systemRemoveEvents();
-            this.popoverRemoveEvents();
+            // this.popoverRemoveEvents();
         },
         methods: {
             // popover绑定事件
@@ -79,11 +79,11 @@
             },
 
             // popover移除事件
-            popoverRemoveEvents() {
-                this.$refs.wrapper.removeEventListener('click', this.click);
-                this.$refs.wrapper.removeEventListener('mouseenter', this.showPopover);
-                this.$refs.wrapper.removeEventListener('mouseleave', this.hidePopover);
-            },
+            // popoverRemoveEvents() {
+            //     this.$refs.wrapper.removeEventListener('click', this.click);
+            //     this.$refs.wrapper.removeEventListener('mouseenter', this.showPopover);
+            //     this.$refs.wrapper.removeEventListener('mouseleave', this.hidePopover);
+            // },
 
             // 系统绑定事件
             systemBindEvents() {
