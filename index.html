@@ -127,13 +127,7 @@
     <div style="margin-top: 20px;">Popover组件</div>
     <p>根据距离窗口边缘的距离自动调整位置</p>
 
-    <x-popover>
-        <template v-slot:content>
-            <div>我是popover2</div>
-        </template>
 
-        <x-button>竖直方向popover</x-button>
-    </x-popover>
     <x-popover mode="hover">
         <template v-slot:content>
             <div>我是popover2</div>
@@ -142,13 +136,6 @@
         <x-button>竖直方向popover</x-button>
     </x-popover>
 
-    <x-popover layout="horizontal">
-        <template v-slot:content>
-            <div>我是popover2</div>
-        </template>
-
-        <x-button>水平popover</x-button>
-    </x-popover>
     <x-popover layout="horizontal" mode="hover">
         <template v-slot:content>
             <div>我是popover2</div>
@@ -156,7 +143,20 @@
 
         <x-button>水平popover</x-button>
     </x-popover>
+    <x-popover>
+        <template v-slot:content>
+            <div>我是popover2</div>
+        </template>
 
+        <x-button>竖直方向popover</x-button>
+    </x-popover>
+    <x-popover layout="horizontal">
+        <template v-slot:content>
+            <div>我是popover2</div>
+        </template>
+
+        <x-button>水平popover</x-button>
+    </x-popover>
 
     <div style="margin-top: 20px;">Tabs组件</div>
 

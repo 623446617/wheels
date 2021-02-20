@@ -249,7 +249,6 @@
             setPopoverPosition(position) {
                 if (position) {
                     this.position = {
-                        position: 'fixed',
                         ...position
                     }
                 } else {
@@ -282,6 +281,7 @@
         background-color: #ffffff;
         box-shadow: 0 1px 6px $border-color;
 
+        position: fixed;
         z-index: 99;
 
         $arrow-l: 10px;
